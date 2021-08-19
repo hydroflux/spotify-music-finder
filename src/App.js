@@ -31,10 +31,23 @@ class App extends Component {
       .then( console.log )
   }
 
+  getPlaylists = () => {
+    fetch('https://api.spotify.com/v1/browse/featured-playlists', {
+      headers: {
+        Authorization: `Bearer ${localStorage.spotify_token}`,
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+      .then( parseHTTPResponse )
+      .then( console.log )
+  }
+
   render(){
     return (
       <div className="App">
         <button onClick={this.getArtists}>Get Artists</button>
+        <button onClick={this.getPlaylists}>Get Playlists</button>
       </div>
     )
   }
