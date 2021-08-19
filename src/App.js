@@ -4,9 +4,11 @@ import { authFetch, authorization_request, parseHTTPResponse } from './helpers/u
 
 class App extends Component {
 
-  componentDidMount(){
-    this.getSpotifyToken()
+  state = {
+    playlists: []
   }
+
+  componentDidMount(){ this.getSpotifyToken() }
 
   getSpotifyToken = () => {
     const headers = {
@@ -38,7 +40,9 @@ class App extends Component {
       'GET',
       headers)
       .then( parseHTTPResponse )
-      .then( console.log )
+      .then( ({ playlists: { items } }) => {
+        this.setState({playlists: items})
+      })
   }
 
   render(){
