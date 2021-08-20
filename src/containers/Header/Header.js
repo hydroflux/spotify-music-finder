@@ -6,7 +6,7 @@ import './Header.css'
 
 import SearchContainer from '../SearchContainer/SearchContainer'
 
-export default function Header() {
+export default function Header({ history }) {
     return (
         <header>
             <Link to="/">
@@ -16,7 +16,7 @@ export default function Header() {
                     alt="logo"
                 />
             </Link>
-            <SearchContainer />
+            <SearchContainer history={history}/>
         </header>
     )
 }

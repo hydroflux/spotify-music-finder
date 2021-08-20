@@ -56,7 +56,9 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header />
+        <Route path="/" render={ routerProps => {
+          return <Header {...routerProps}/>
+        }}/>
         <Route exact path="/" render={ (routerProps) => {
           return <PlaylistsContainer playlists={playlists}/>
         }} />

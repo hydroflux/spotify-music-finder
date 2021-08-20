@@ -16,6 +16,7 @@ class SearchContainer extends Component {
 
     handleSearch = () => {
         const { searchTerm } = this.state
+        const { history } = this.props
         searchURL =  `${searchURL}?q=${searchTerm}&type=artist`
         const headers = {
             Authorization: `Bearer ${localStorage.spotify_token}`,
@@ -27,7 +28,9 @@ class SearchContainer extends Component {
             'GET',
             headers)
             .then( parseHTTPResponse )
-            .then( console.log )
+            .then( () => {
+                history.push(`/search?q=${searchTerm}`, { searchTerm })
+            })
     }
 
     render(){
