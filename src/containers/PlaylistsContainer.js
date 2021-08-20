@@ -8,7 +8,8 @@ export default function PlaylistsContainer({ playlists }) {
             return (
                 <PlaylistCard
                     key={playlist.id}
-                    {...playlist}/>
+                    playlist={playlist}
+                />
             )
         })   
     }
