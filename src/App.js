@@ -47,9 +47,11 @@ class App extends Component {
   }
 
   render(){
+    const { playlists } = this.state
+
     return (
       <div className="App">
-        <PlaylistsContainer />
+        <PlaylistsContainer playlists={playlists}/>
       </div>
     )
   }
