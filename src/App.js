@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import './App.css';
+import Header from './containers/Header/Header';
 import PlaylistsContainer from './containers/PlaylistsContainer/PlaylistsContainer';
 import { authFetch, authorization_request, parseHTTPResponse } from './helpers/utilities';
 
@@ -51,6 +52,7 @@ class App extends Component {
 
     return (
       <div className="App">
+        <Header />
         <PlaylistsContainer playlists={playlists}/>
       </div>
     )
