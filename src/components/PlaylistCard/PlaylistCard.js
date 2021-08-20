@@ -1,4 +1,4 @@
-import './PlaylistCard'
+import './PlaylistCard.css'
 
 export default function PlaylistCard({ playlist }) {
     
@@ -7,7 +7,7 @@ export default function PlaylistCard({ playlist }) {
     return (
         <div className="playlist-card">
             <h2>{ name }</h2>
-            <p>{ description }</p>
+            <p dangerouslySetInnerHTML={{ __html: `${description}` }}></p>
             <img
                 src={ images[0].url }
                 alt={ name }

@@ -1,5 +1,5 @@
 import PlaylistCard from '../../components/PlaylistCard/PlaylistCard'
-import './PlaylistContainer'
+import './PlaylistContainer.css'
 
 export default function PlaylistsContainer({ playlists }) {
 
