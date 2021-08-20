@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import './App.css';
-import PlaylistsContainer from './containers/PlaylistsContainer';
+import PlaylistsContainer from './containers/PlaylistsContainer/PlaylistsContainer';
 import { authFetch, authorization_request, parseHTTPResponse } from './helpers/utilities';
 
 class App extends Component {

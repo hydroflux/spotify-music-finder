@@ -1,4 +1,4 @@
-import React from 'react'
+import './PlaylistCard'
 
 export default function PlaylistCard({ playlist }) {
     

@@ -1,5 +1,5 @@
-import React from 'react'
-import PlaylistCard from '../components/PlaylistCard'
+import PlaylistCard from '../../components/PlaylistCard/PlaylistCard'
+import './PlaylistContainer'
 
 export default function PlaylistsContainer({ playlists }) {
 
