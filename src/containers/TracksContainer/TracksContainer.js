@@ -1,7 +1,13 @@
+import './TracksContainer.css'
+
+import TrackCard from "../../components/TrackCard/TrackCard"
+
 export default function TracksContainer({ tracks }) {
 
     const displayTracks = () => {
-        console.log('displaying tracks', tracks)
+        return tracks.map( track => {
+            return <TrackCard key={track.id} {...track}/>
+        })
     }
 
     return (

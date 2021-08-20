@@ -1,0 +1,26 @@
+.artist-section {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    padding-top: 1rem;
+    padding-left: 2rem;
+}
+
+.artist-section > img {
+    width: 100%;
+}
+
+.artist-details {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+}
+
+.artist-details strong {
+    font-weight: 900;
+    font-size: 1.2rem;
+}
+
+.artist-followers {
+    margin-left: 3rem;
+}

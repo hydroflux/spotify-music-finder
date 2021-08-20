@@ -31,9 +31,20 @@ class ArtistContainer extends Component{
 
     render(){
         const { tracks } = this.state
+        const { artist } = this.props.location.state
         
         return (
             <section>
+                <div className="artist-section">
+                    <div className="artist-details">
+                        <h1 className="artist-results">Results for <strong>{ artist.name }</strong></h1>
+                        <p className="artist-followers">Followers: { artist.followers.total }</p>
+                    </div>
+                    <img
+                        src={ artist.images[0].url }
+                        alt={ artist.name }
+                    />
+                </div>
                 <TracksContainer tracks={ tracks }/>
             </section>
         )
