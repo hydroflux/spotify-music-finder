@@ -2,7 +2,7 @@ import { Component } from 'react';
 import './App.css';
 import Header from './containers/Header/Header';
 import PlaylistsContainer from './containers/PlaylistsContainer/PlaylistsContainer';
-import { authFetch, authorization_request, parseHTTPResponse } from './helpers/utilities';
+import { authFetch, authorization_request, featuredPlaylistsURL, parseHTTPResponse } from './helpers/utilities';
 
 class App extends Component {
 
@@ -38,7 +38,7 @@ class App extends Component {
       'Content-Type': 'application/json'
     }
 
-    authFetch('https://api.spotify.com/v1/browse/featured-playlists',
+    authFetch(featuredPlaylistsURL,
       'GET',
       headers)
       .then( parseHTTPResponse )

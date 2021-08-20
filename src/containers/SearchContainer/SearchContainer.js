@@ -2,6 +2,9 @@ import { Component } from 'react'
 
 import SearchBar from 'material-ui-search-bar'
 import SearchIcon from '@material-ui/icons/Search'
+import { authFetch, parseHTTPResponse } from '../../helpers/utilities'
+
+let searchURL = 'https://api.spotify.com/v1/search'
 
 class SearchContainer extends Component {
 
@@ -11,6 +14,22 @@ class SearchContainer extends Component {
 
     handleChange = searchTerm => this.setState({ searchTerm })
 
+    handleSearch = () => {
+        const { searchTerm } = this.state
+        searchURL =  `${searchURL}?q=${searchTerm}&type=artist`
+        const headers = {
+            Authorization: `Bearer ${localStorage.spotify_token}`,
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+          }
+
+        authFetch(searchURL,
+            'GET',
+            headers)
+            .then( parseHTTPResponse )
+            .then( console.log )
+    }
+
     render(){
         return (
             <SearchBar 
@@ -18,10 +37,10 @@ class SearchContainer extends Component {
                 name="searchTerm"
                 value={ this.state.searchTerm }
                 placeholder="Search by artist"
-                cancelOnEscape={ true }
+                // cancelOnEscape={ true }
                 closeIcon={ <SearchIcon /> }
-                onCancelSearch={ () => console.log("on cancel search")}
-                onRequestSearch={ () => console.log("on request search")}
+                onCancelSearch={ this.handleSearch }
+                onRequestSearch={ this.handleSearch }
                 onChange={this.handleChange}
             />
         )
