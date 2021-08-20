@@ -62,7 +62,9 @@ class App extends Component {
         <Route exact path="/" render={ (routerProps) => {
           return <PlaylistsContainer playlists={playlists}/>
         }} />
-        <Route path="/search" component={ArtistContainer}  />
+        <Route path="/search" render={ routerProps => {
+          return <ArtistContainer {...routerProps}/>
+        }} />
       </div>
     )
   }

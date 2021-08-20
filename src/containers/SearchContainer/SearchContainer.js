@@ -28,8 +28,8 @@ class SearchContainer extends Component {
             'GET',
             headers)
             .then( parseHTTPResponse )
-            .then( () => {
-                history.push(`/search?q=${searchTerm}`, { searchTerm })
+            .then( ({ artists: {items} }) => {
+                history.push(`/search?q=${searchTerm}`, { searchTerm, artist: items[0] })
             })
     }
 
