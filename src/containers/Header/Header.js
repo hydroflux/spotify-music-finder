@@ -1,6 +1,8 @@
-import './Header.css'
 import SpotifyLogo from '../../assets/images/spotify-logo.png'
-import SearchBar from '../../components/SearchBar/SearchBar'
+
+import './Header.css'
+
+import SearchContainer from '../SearchContainer/SearchContainer'
 
 export default function Header() {
     return (
@@ -10,7 +12,7 @@ export default function Header() {
                 src={ SpotifyLogo }
                 alt="logo"
             />
-            <SearchBar /> 
+            <SearchContainer />
         </header>
     )
 }
