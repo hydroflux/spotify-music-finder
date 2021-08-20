@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import { authFetch, parseHTTPResponse } from '../../helpers/utilities'
+import TracksContainer from '../TracksContainer/TracksContainer'
 import './ArtistContainer.css'
 
 const artistURL = 'https://api.spotify.com/v1/artists'
@@ -29,9 +30,11 @@ class ArtistContainer extends Component{
     }
 
     render(){
+        const { tracks } = this.state
+        
         return (
             <section>
-                {}
+                <TracksContainer tracks={ tracks }/>
             </section>
         )
     }

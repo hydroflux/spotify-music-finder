@@ -2,7 +2,7 @@ import { Component } from 'react'
 
 import SearchBar from 'material-ui-search-bar'
 import SearchIcon from '@material-ui/icons/Search'
-import { authFetch, parseHTTPResponse } from '../../helpers/utilities'
+import { authFetch, authHeaders, parseHTTPResponse } from '../../helpers/utilities'
 
 let searchURL = 'https://api.spotify.com/v1/search'
 
@@ -18,15 +18,8 @@ class SearchContainer extends Component {
         const { searchTerm } = this.state
         const { history } = this.props
         searchURL =  `${searchURL}?q=${searchTerm}&type=artist`
-        const headers = {
-            Authorization: `Bearer ${localStorage.spotify_token}`,
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-          }
 
-        authFetch(searchURL,
-            'GET',
-            headers)
+        authFetch(searchURL, 'GET', authHeaders)
             .then( parseHTTPResponse )
             .then( ({ artists: {items} }) => {
                 history.push(`/search?q=${searchTerm}`, { searchTerm, artist: items[0] })
