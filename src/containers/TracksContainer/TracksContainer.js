@@ -11,8 +11,11 @@ export default function TracksContainer({ tracks }) {
     }
 
     return (
-        <section>
-            { displayTracks() }
-        </section>
+        <div>
+            <h2 className="tracks-container-title">Tracks</h2>
+            <section className="tracks-container">    
+                { displayTracks() }
+            </section>
+        </div>
     )
 }
