@@ -5,3 +5,8 @@ header {
     top: 0;
     background-color: white;
 }
+
+#logo {
+    height: 50px;
+    margin-left: 1.5rem;
+}
