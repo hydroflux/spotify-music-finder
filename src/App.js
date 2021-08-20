@@ -1,5 +1,9 @@
 import { Component } from 'react';
+import { Route } from 'react-router-dom';
+
 import './App.css';
+import ArtistContainer from './containers/ArtistContainer/ArtistContainer';
+
 import Header from './containers/Header/Header';
 import PlaylistsContainer from './containers/PlaylistsContainer/PlaylistsContainer';
 import { authFetch, authorization_request, featuredPlaylistsURL, parseHTTPResponse } from './helpers/utilities';
@@ -53,7 +57,10 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <PlaylistsContainer playlists={playlists}/>
+        <Route exact path="/" render={ (routerProps) => {
+          return <PlaylistsContainer playlists={playlists}/>
+        }} />
+        <Route path="/search" component={ArtistContainer}  />
       </div>
     )
   }
